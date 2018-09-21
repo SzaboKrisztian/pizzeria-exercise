@@ -3,15 +3,13 @@ import java.time.LocalTime;
 public class Pizzeria {
   private String name;
   private Coordinate location;
-  private LocalTime openingTime;
-  private LocalTime closingTime;
+  private WorkingHours hours;
 
-  public Pizzeria(String name, Coordinate location, LocalTime openingTime, LocalTime closingTime) {
+  public Pizzeria(String name, Coordinate location, WorkingHours hours) {
 
     this.name = name;
     this.location = location;
-    this.openingTime = openingTime;
-    this.closingTime = closingTime;
+    this.hours = hours;
   }
 
   public Coordinate getLocation() {
@@ -22,15 +20,11 @@ public class Pizzeria {
     return this.name;
   }
 
-  public LocalTime getOpeningTime() {
-    return this.openingTime;
-  }
-
-  public LocalTime getClosingTime() {
-    return this.closingTime;
+  public WorkingHours getWorkingHours() {
+    return this.hours;
   }
 
   public Pizzeria clone() {
-    return new Pizzeria(this.name, this.location.clone(), this.openingTime, this.closingTime);
+    return new Pizzeria(this.name, this.location.clone(), this.hours.clone());
   }
 }

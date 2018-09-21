@@ -137,9 +137,9 @@ public class Main {
       }
 
       // Saving the data
-      pizzerias.add(new Pizzeria(name, new Coordinate(x, y),
+      pizzerias.add(new Pizzeria(name, new Coordinate(x, y), new WorkingHours(
         LocalTime.of(openingHour, openingMinute),
-        LocalTime.of(closingHour, closingMinute)));
+        LocalTime.of(closingHour, closingMinute))));
       System.out.println("Would you like to add another pizzeria? [Y to confirm]");
       String prompt = scn.nextLine();
       if (prompt.equals("") || prompt.toUpperCase().charAt(0) != 'Y')
@@ -191,9 +191,7 @@ public class Main {
       // Note that there's two cases to handle here:
       // When openingTime < closingTime and when closingTime < openingTime
       // (i.e. the workday ends after midnight, sometime in the next day)
-      if (current.getOpeningTime().isBefore(current.getClosingTime())?
-      now.isAfter(current.getOpeningTime()) && now.isBefore(current.getClosingTime()):
-      now.isBefore(current.getClosingTime()) || now.isAfter(current.getOpeningTime())) {
+      if (current.getWorkingHours().isItOpen(now)) {
         double dist = myPlace.distanceTo(current.getLocation());
         // If it's closer then the previously found closest
         // remember this instance as being the closest, and also
