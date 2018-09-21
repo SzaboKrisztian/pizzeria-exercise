@@ -30,8 +30,9 @@ public class Pizzeria {
   }
 
   public String toString() {
-    return "Pizzeria " + this.name + " located at " + this.location.getX() +
-    ", " + this.location.getY() + ", open between " + this.hours.getOpeningTime().format(DateTimeFormatter.ofPattern("HH:mm")) +
+    return "\"" + this.name + "\" located at " + this.location.getX() + ", " +
+    this.location.getY() + ", open between " +
+    this.hours.getOpeningTime().format(DateTimeFormatter.ofPattern("HH:mm")) +
     " and " + this.hours.getClosingTime().format(DateTimeFormatter.ofPattern("HH:mm"));
   }
 }

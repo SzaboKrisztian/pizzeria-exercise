@@ -208,7 +208,7 @@ public class Main {
       System.out.println("There are no pizzerias open right now.");
     }
     else {
-      System.out.printf("The closest open pizzeria to you is %.2f away from you: %s, .\n",
+      System.out.printf("The closest open pizzeria to you is %.2f away from you: %s.\n",
       distance, closest);
     }
   }
