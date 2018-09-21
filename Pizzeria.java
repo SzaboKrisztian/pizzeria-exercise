@@ -1,4 +1,5 @@
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Pizzeria {
   private String name;
@@ -26,5 +27,11 @@ public class Pizzeria {
 
   public Pizzeria clone() {
     return new Pizzeria(this.name, this.location.clone(), this.hours.clone());
+  }
+
+  public String toString() {
+    return "Pizzeria " + this.name + " located at " + this.location.getX() +
+    ", " + this.location.getY() + ", open between " + this.hours.getOpeningTime().format(DateTimeFormatter.ofPattern("HH:mm")) +
+    " and " + this.hours.getClosingTime().format(DateTimeFormatter.ofPattern("HH:mm"));
   }
 }
